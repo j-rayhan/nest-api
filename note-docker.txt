@@ -1,0 +1,5 @@
+docker run --name nest-postgres -e POSTGRES_PASSWORD=SuperSecret -d -p 5432:5432 postgres
+
+docker ps OR docker container ls
+docker container stop postgres-nest
+docker container rm postgres-nest
