@@ -10,6 +10,6 @@ async function bootstrap() {
   app.useGlobalInterceptors(new TransformInterceptor());
   const PORT = 3000;
   await app.listen(PORT);
-  logger.log(`Server listing PORT: ${PORT}`);
+  logger.log(`Server Running ON PORT: ${PORT}`);
 }
 bootstrap();
