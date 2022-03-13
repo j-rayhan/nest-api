@@ -6,13 +6,17 @@ import { TasksRepository } from './tasks.repository';
 import { TaskStatus } from './tasks-status.enum';
 import { Task } from './task.entity';
 import { User } from 'src/auth/user.entity';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class TasksService {
   constructor(
     @InjectRepository(TasksRepository)
     private tasksRepository: TasksRepository,
-  ) {}
+    private configService: ConfigService,
+  ) {
+    console.log('TEST CONFIG ENV: ', configService.get('TEST_DEV'));
+  }
   getTasks(filterDto: GetTaskFilterDto, user: User): Promise<Task[]> {
     return this.tasksRepository.getTasks(filterDto, user);
   }
